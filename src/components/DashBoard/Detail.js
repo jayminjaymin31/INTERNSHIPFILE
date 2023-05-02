@@ -167,7 +167,7 @@ const { register, handleSubmit } = useForm();
                                     <td>
                                         <button class="button"onClick={() => { navigate(`/updateapi2/${u._id}`)}}><i class="uil uil-edit"></i></button><br />
                                         <button class="button" onClick={() => { deleteProject(u._id) }}><i class="uil uil-trash-alt"></i></button><br />
-                                        <button class="button" onClick={() => { navigate("/detail") }}><i class='bx bx-info-circle'></i></button>
+                                        {/* <button class="button" onClick={() => { navigate(`/detailpage/${u._id}`) }}><i class='bx bx-info-circle'></i></button> */}
                                     </td>
                                 </tr>)
                             })

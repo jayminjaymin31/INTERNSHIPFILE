@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { Helmet } from 'react-helmet'
+import { useNavigate, useParams } from 'react-router-dom'
 import { Link } from 'react-router-dom'
 
 export const DetailPage = () => {
@@ -47,39 +48,80 @@ export const DetailPage = () => {
     visibility: "visible; animation-delay: 0.3s; animation-name: fadeInUp"
   }
   const [values, setValues] = useState({
-    // title: "",
-    // description: "",
-    // technology: "",
-    // estimatedHours: ""
   })
+  var navigate = useNavigate()
+
   const { id } = useParams();
-  useEffect(() => {
-    axios.get("http://localhost:5000/project/project/" + id).then((res) => {
-      console.log(res.data.project)
-      setValues(res.data.project)
+
+
+  const [users, setusers] = useState()
+const [module, setmodule] = useState()
+
+
+  const getApi = () => {
+
+    axios.get("http://localhost:5000/module/module12/" + id).then((res) => {
+
+      console.log(res.data.module)
+      setusers(res.data.module)
+
+      //    console.log(res.data.data[0]?.projects._id);
 
     }).catch((err) => {
 
       console.log(err)
     })
+
+
+  }
+  const getApi2 = () => {
+
+    axios.get("http://localhost:5000/module/module/" + id).then((res) => {
+
+      console.log(res.data.module)
+      setmodule(res.data.module)
+
+      //    console.log(res.data.data[0]?.projects._id);
+
+    }).catch((err) => {
+
+      console.log(err)
+    })
+
+
+  }
+
+  useEffect(() => {
+    
+    getApi()
+    getApi2()
+
+
   }, [])
+
+
 
 
   return (
     <div class="container-xxl bg-white p-0">
+      <Helmet>
+        <link href='https://unpkg.com/boxicons@2.0.9/css/boxicons.min.css' rel='stylesheet' />
+        <link rel="stylesheet" href="https://unicons.iconscout.com/release/v4.0.0/css/line.css" />
+        <link rel="stylesheet" href="../assets/vendor/fonts/jaymin.css" />
+      </Helmet>
 
 
       <div class="container-xxl py-5 bg-primary hero-header mb-5">
         <div class="container my-5 py-5 px-lg-5">
           <div class="row g-5 py-5">
             <div class="col-12 text-center">
-              <h1 class="text-white animated zoomIn">ViewTeam</h1>
+              <h1 class="text-white animated zoomIn">Detail</h1>
               <hr class="bg-white mx-auto mt-0" style={style} />
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center">
                   <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
                   <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                  <li class="breadcrumb-item text-white active" aria-current="page">ViewTeam</li>
+                  <li class="breadcrumb-item text-white active" aria-current="page">Detail</li>
                 </ol>
               </nav>
             </div>
@@ -98,47 +140,113 @@ export const DetailPage = () => {
             <h6 class="position-relative d-inline text-primary ps-4">Details</h6>
             <h2 class="mt-2">What are details given below</h2>
           </div>
-          <div class="row g-4">
-            <div class="col-lg-4 col-md-6 wow zoomIn" data-wow-delay="0.1s" style={style2A}>
-              <div class="service-item d-flex flex-column justify-content-center text-center rounded">
-                <div class="service-icon flex-shrink-0">
-                  <i class="fa fa-home fa-2x"></i>
-                </div>
-                {/* <h5 class="mb-3">de</h5> */}
-                <h5 class="mb-3">Project Detail</h5>
 
 
-                <div class="col-md-12">
-                  <div class="form-floating">
-                    <strong>Title: {values.title}</strong>
-
+<div class="jp">
+          <div class="data">
+            <div class="content-data">
+              <div class="head">
+                <h3>Project List</h3>
+                <form action="#">
+                  <div class="form-group">
                   </div>
+                </form>
+                <div class="refresh">
+
                 </div>
-                <div class="col-12">
-                  <div class="form-floating">
-                    <strong>Description: {values.description}</strong>
-
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-floating">
-                    <strong>Technology: {values.technology}</strong>
-
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="form-floating">
-                    <strong>EstimatedHours: {values.estimatedHours}</strong>
-
-                  </div>
-                </div>
-
-
-
-                {/* <a class="btn px-3 mt-auto mx-auto" href="">Read More</a> */}
               </div>
+
+              <table class="ann" >
+                <tr>
+                  <th>Id</th>
+                  <th>title</th>
+                  <th>description</th>
+                  <th>technology</th>
+                  <th>estimatedHours</th>
+                  <th>createdAt</th>
+                  <th>updatedAt</th>
+                </tr>
+                {
+                  users?.map((u) => {
+                    return (<tr>
+                      <td>{u.projects._id}</td>
+                      <td>{u.projects.title}</td>
+                      <td>{u.description}</td>
+                      <td>{u.projects.technology}</td>
+                      <td>{u.estimatedHours}</td>
+                      <td>{u.projects.createdAt}</td>
+                      <td>{u.projects.updatedAt}</td>
+
+
+
+                    </tr>)
+                  })
+                }
+
+              </table>
             </div>
           </div>
+          </div>
+
+
+<div class="jp">
+          <div class="data">
+            <div class="content-data">
+              <div class="head">
+                <h3>Module</h3>
+                <form action="#">
+                  <div class="form-group">
+
+
+                  </div>
+                </form>
+                <div class="refresh">
+
+                </div>
+
+
+              </div>
+
+              <table class="ann" >
+                <tr>
+
+                  <th>Id</th>
+                  <th>Projects</th>
+                  <th>ModuleName</th>
+                  <th>Description</th>
+                  <th>EstimatedHours</th>
+                  <th>Status</th>
+                  <th>createdAt</th>
+                  <th>updatedAt</th>
+
+                </tr>
+                {
+                  users?.map((u) => {
+
+                    return (<tr>
+
+                      <td>{u._id}</td>
+                      <td>{u.projects.title}</td>
+                      <td>{u.moduleName}</td>
+                      <td>{u.description}</td>
+                      <td>{u.estimatedHours}</td>
+                      <td>{u.status.statusName}</td>
+                      <td>{u.createdAt}</td>
+                      <td>{u.updatedAt}</td>
+
+
+
+                    </tr>)
+                  })
+                }
+
+              </table>
+            </div>
+          </div>
+          </div>
+
+
+
         </div>
       </div>
 

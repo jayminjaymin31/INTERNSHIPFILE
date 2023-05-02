@@ -186,7 +186,7 @@ export const UpdateApi2 = () => {
                                             <div class="col-12">
                                                 <div class="form-floating">
                                                     <select name="status" className="form-control" onChange={e => setValues({ ...values, status: e.target.value })}>
-                                                        {status?.map(status => (
+                                                        {status?.map((status) => (
                                                             <option key={status._id} value={status._id}>
                                                                 {status.statusName}
                                                             </option>

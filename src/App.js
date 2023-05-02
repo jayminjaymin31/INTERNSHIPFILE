@@ -25,7 +25,12 @@ import { UpdateTask } from './components/Task/UpdateTask';
 import { UserTaskAddPage } from './components/DashBoard/UserTaskAddPage';
 import { UserTaskUpdatePage } from './components/DashBoard/UserTaskUpdatePage';
 import { DetailUserTaskPage2 } from './components/DashBoard/detailUserTaskpage2';
-
+import { DetailTeam } from './components/ProjectTeam/DetailTeam';
+import { DetailTask } from './components/Task/DetailTask';
+import { TesterDashBoard } from './components/DashBoard/TesterDashBoard';
+import { UserDetailPage } from './components/DashBoard/UserDetailPage';
+import { ProjectManagerDashBoard } from './components/DashBoard/ProjectManagerDashBoard';
+import { TeamLeaderDashBoard } from './components/DashBoard/TeamLeaderDashBoard';
 
 
 
@@ -38,6 +43,10 @@ function App() {
         {/* <Addpro/> */}
 
          <Routes>
+         <Route path="/teamleaderdashboard/:id" element={<TeamLeaderDashBoard/>}/>
+          <Route path="/projectmanagerdashboard/:id" element={<ProjectManagerDashBoard/>}/>
+          <Route path="/detailtask/:id" element={<DetailTask/>}/>
+          <Route path="/detailteam/:id" element={<DetailTeam/>}/>
           <Route path="/detailusertaskpage/:id" element={<DetailUserTaskPage2/>}/>
           <Route path="/usertaskupdatepage/:id" element={<UserTaskUpdatePage/>}/>
           <Route path="/usertaskaddpage" element={<UserTaskAddPage/>}/>
@@ -48,13 +57,14 @@ function App() {
           <Route path="/projectteam/:id" element={<ProjectTeam/>}/>
           <Route path="/projectteamadd" element={<ProjectTeamAdd/>}/>
           <Route path="/detailpage/:id" element={<DetailPage/>}/>
-         <Route path="/addmodule" element={<AddModule/>}/>
+          <Route path="/addmodule" element={<AddModule/>}/>
           <Route path="/updateapi2/:id" element={<UpdateApi2/>}/>
-      
+          <Route path="/userdetailpage/:id" element={<UserDetailPage/>}/>
           <Route path="/updateapi/:id" element={<UpdateApi/>}/>
-         <Route path="/detail/:id" element={<Detail/>}/>
-         <Route path="/viewteam/:id" element={<ViewTeam/>}/>
+          <Route path="/detail/:id" element={<Detail/>}/>
+          <Route path="/viewteam/:id" element={<ViewTeam/>}/>
           <Route path="/devdashboard" element={<DevDashBoard/>}/>
+          <Route path="/testerdashboard/:id" element={<TesterDashBoard/>}/>
           <Route path="/userdashboard/:id" element={<UserDashBoard />}/>
           <Route path="/admindashboard" element={<AdminDashBoard2/>}/>
           <Route path="/contact" element={<Contact/>}/>

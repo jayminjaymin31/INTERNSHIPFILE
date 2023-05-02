@@ -187,7 +187,7 @@ export const TaskPage = () => {
                                     <td>
                                         <button class="button"onClick={() => { navigate(`/updatetask/${u._id}`)}}><i class="uil uil-edit"></i></button><br />
                                         <button class="button" onClick={() => { deleteProject(u._id) }}><i class="uil uil-trash-alt"></i></button><br />
-                                        <button class="button" onClick={() => { navigate(`/detailpage/${u._id}`) }}><i class='bx bx-info-circle'></i></button>
+                                        <button class="button" onClick={() => { navigate(`/detailtask/${u._id}`) }}><i class='bx bx-info-circle'></i></button>
                                         
 
 

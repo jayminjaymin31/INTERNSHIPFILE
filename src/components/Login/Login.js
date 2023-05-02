@@ -73,12 +73,12 @@ export const Login = () => {
                      navigate(`/userdashboard/${id}`)
                  }
                  else if (res.data.data?.role.name === "tester") {
-                    navigate(`/userdashboard/${id}`)
+                    navigate(`/testerdashboard/${id}`)
                 } else if (res.data.data?.role.name === "project manager") {
-                     navigate(`/userdashboard/${id}`)
+                     navigate(`/projectmanagerdashboard/${id}`)
                  }
-                 else if (res.data.data?.role.name === "team leader ") {
-                    navigate(`/userdashboard/${id}`)
+                 else if (res.data.data?.role.name === "team leader") {
+                    navigate(`/teamleaderdashboard/${id}`)
                 }else if(res.data.data?.role.name === "admin"){
                      navigate("/admindashboard")
                  }

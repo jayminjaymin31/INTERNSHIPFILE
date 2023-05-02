@@ -59,6 +59,7 @@ export const UserDashBoard = () => {
 
 
   }
+  
   useEffect(() => {
 
     getApi()
@@ -119,13 +120,13 @@ export const UserDashBoard = () => {
         <div class="container my-5 py-5 px-lg-5">
           <div class="row g-5 py-5">
             <div class="col-12 text-center">
-              <h1 class="text-white animated zoomIn">UserDashBoard page</h1>
+              <h1 class="text-white animated zoomIn">DeveloperDashBoard</h1>
               <hr class="bg-white mx-auto mt-0" style={style} />
               <nav aria-label="breadcrumb">
                 <ol class="breadcrumb justify-content-center">
                   <li class="breadcrumb-item"><a class="text-white" href="#">Home</a></li>
                   <li class="breadcrumb-item"><a class="text-white" href="#">Pages</a></li>
-                  <li class="breadcrumb-item text-white active" aria-current="page">UserDashBoard Page</li>
+                  <li class="breadcrumb-item text-white active" aria-current="page">Developer Page</li>
                 </ol>
               </nav>
             </div>
@@ -163,7 +164,7 @@ export const UserDashBoard = () => {
             <tr>
               <th>Id</th>
               <th>Task</th>
-              <th>User</th>
+              <th>Developer</th>
 
               
 
@@ -181,7 +182,7 @@ export const UserDashBoard = () => {
                   <td>
                     <button class="button" onClick={() => { navigate(`/usertaskupdatepage/${u._id}`) }}><i class="uil uil-edit"></i></button><br />
                     <button class="button" onClick={() => { deleteProject(u._id) }}><i class="uil uil-trash-alt"></i></button><br />
-                    <button class="button" onClick={() => { navigate(`/detailpage/${u._id}`) }}><i class='bx bx-info-circle'></i></button>
+                    <button class="button" onClick={() => { navigate(`/userdetailpage/${u._id}`) }}><i class='bx bx-info-circle'></i></button>
 
 
 
